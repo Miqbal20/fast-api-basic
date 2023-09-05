@@ -1,5 +1,5 @@
 from enum import Enum
-
+import uvicorn
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -69,3 +69,7 @@ async def get_item_id(item_id: str, q: str | None = None, short: bool = False):
             "description": "Lorem Ipsum do not....."
         })
     return item
+
+
+if __name__ == '__main__':
+    uvicorn.run('main:app', reload=True)
