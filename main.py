@@ -58,5 +58,14 @@ async def get_item(skip: int = 0, limit: int = 10):
 
 
 @app.get('/items/{item_id}', description='Get Item by ID')
-async def get_item_id(item_id: str):
-    return {"message": item_id}
+async def get_item_id(item_id: str, q: str | None = None, short: bool = False):
+    item = {"item_id": item_id}
+    if q:
+        item.update({
+            "q": q
+        })
+    if not short:
+        item.update({
+            "description": "Lorem Ipsum do not....."
+        })
+    return item
