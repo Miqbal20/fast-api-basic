@@ -4,7 +4,7 @@ __pycache__/
 *$py.class
 .idea/
 .venv
-.env
+#.env
 # C extensions
 *.so
 
